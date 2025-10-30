@@ -1,0 +1,20 @@
+{
+    "name": "Real Estate",
+    "version": "1.0",
+    "summary": "Real Estate Management Module",
+    "description": "A module to manage real estate properties, agents, and sales.",
+    "author": "Sultan",
+    "depends": ["base"],
+    "installable": True,
+    "application": True,
+    "category": "Tutorials",
+    "data": [
+        "security/ir.model.access.csv",
+        "views/estate_property_offer_views.xml",
+        "views/estate_property_type_views.xml",
+        "views/estate_property_tag_views.xml",
+        "views/estate_property_views.xml",
+        "views/res_users_views.xml",
+        "views/estate_menus.xml",
+    ],
+}

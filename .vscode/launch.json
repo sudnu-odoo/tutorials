@@ -1,0 +1,20 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "powerpeg",
+            "type": "debugpy",
+            "request": "launch",
+            "python": "/home/odoo/odev/virtualenvs/19.0/bin/python3",
+            "program": "/home/odoo/odev/worktrees/19.0/odoo/odoo-bin",
+            "console": "integratedTerminal",
+            "args": [
+                "--addons-path=/home/odoo/odev/worktrees/19.0/enterprise,/home/odoo/odev/worktrees/19.0/design-themes,/home/odoo/odev/worktrees/19.0/odoo/addons,/home/odoo/odev/worktrees/19.0/odoo/odoo/addons, /home/odoo/Documents/tutorials",
+                "-d", "rd-demo",
+                "-u", "estate",
+                "--dev", "xml",
+                "--limit-time-real=100000"
+            ]
+        }
+    ]
+}
