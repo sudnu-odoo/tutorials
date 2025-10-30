@@ -103,6 +103,10 @@ class EstateProperty(models.Model):
                 raise UserError("Sold properties cannot be canceled.")
             record.state = 'canceled'
 
+    def action_print_sale_report(self):
+        # Generate the PDF report for this property.
+        return self.env.ref('estate.report_property_offers').report_action(self)
+
     # Constraint methods
     @api.constrains('selling_price', 'expected_price')
     def _check_selling_price_vs_expected_price(self):

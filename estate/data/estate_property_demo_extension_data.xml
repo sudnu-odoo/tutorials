@@ -1,0 +1,9 @@
+<odoo>
+    <record id="estate_property_big_villa" model="estate.property">
+        <field name="property_type_id" ref="prop_type_residential" />
+    </record>
+
+    <record id="estate_property_trailer_home" model="estate.property">
+        <field name="property_type_id" ref="prop_type_residential" />
+    </record>
+</odoo>

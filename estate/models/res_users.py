@@ -8,3 +8,6 @@ class ResUsers(models.Model):
         'salesperson_id',
         string='Properties'
     )
+
+    def action_print_user_properties(self):
+        return self.env.ref('estate.report_user_properties').report_action(self)

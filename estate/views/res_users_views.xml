@@ -22,6 +22,8 @@
                                 optional="hide" />
                         </list>
                     </field>
+                    <button type="object" name="action_print_user_properties" icon="fa-print"
+                        string="Print User Properties" class="btn-primary" />
                 </page>
             </xpath>
         </field>
