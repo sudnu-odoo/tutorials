@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <template id="invoice_custom_template" inherit_id="account.report_invoice_document">
+        <!-- Adding Salesperson -->
+        <xpath expr="//div[@name='due_date']" position="after">
+            <div class="col" name="salesman">
+                <strong>Salesperson</strong>
+                <div t-field="o.user_id.name"></div>
+            </div>
+        </xpath>
+
+        <!-- Adding Total Amount in Text -->
+        <xpath expr="//div[@id='total']" position="after">
+            <div class="mb-2">
+                <p class="text-end lh-sm"> Total amount in words: <br />
+                    <small
+                        class="text-muted lh-sm">
+                        <span t-field="o.amount_total_text" />
+                    </small>
+                </p>
+            </div>
+            <!-- Signature Block added below the Total Amount in Words -->
+            <div class="clearfix">
+                <!-- Use text-start to ensure the text is left-aligned over the line -->
+                <div class="float-start text-start" style="min-width: 200px;">
+                    <small>Sign here,</small>
+                    <!-- The line is now below the text, left-aligned -->
+                    <div style="border-top: 1px solid black; margin-top: 100px;"></div>
+                </div>
+            </div>
+        </xpath>
+
+    </template>
+</odoo>

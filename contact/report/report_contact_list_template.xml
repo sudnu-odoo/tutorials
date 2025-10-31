@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <template id="report_contact_list_template">
+        <t t-call="web.html_container">
+            <t t-call="web.external_layout">
+                <div class="page">
+                    <h2>Contact List</h2>
+                    <table class="table table-sm o_main_table mt16">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Phone</th>
+                                <th>Company</th>
+                                <th>City</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <t t-foreach="docs" t-as="contact">
+                                <tr>
+                                    <td>
+                                        <span t-field="contact.name" />
+                                    </td>
+                                    <td>
+                                        <span t-field="contact.email" />
+                                    </td>
+                                    <td>
+                                        <span t-field="contact.phone" />
+                                    </td>
+                                    <td>
+                                        <span t-field="contact.company_name" />
+                                    </td>
+                                    <td>
+                                        <span t-field="contact.city" />
+                                    </td>
+                                </tr>
+                            </t>
+                        </tbody>
+                    </table>
+                </div>
+            </t>
+        </t>
+    </template>
+</odoo>
