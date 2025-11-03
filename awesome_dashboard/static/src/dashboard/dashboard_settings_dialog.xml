@@ -1,0 +1,25 @@
+<t t-name="awesome_dashboard.DashboardSettingsDialog" owl="1">
+    <Dialog title.translate="Dashboard Settings">
+        <div class="p-3">
+            <table class="table table-borderless">
+                <t t-foreach="props.items" t-as="item" t-key="item.id">
+                    <tr>
+                        <td>
+                            <input
+                                type="checkbox"
+                                t-att-checked="state.selected[item.id]"
+                                t-on-change="() => this.toggleItem(item.id)"
+                            />
+                        </td>
+                        <td>
+                            <t t-esc="item.description" />
+                        </td>
+                    </tr>
+                </t>
+            </table>
+        </div>
+        <t t-set-slot="footer">
+            <button class="btn btn-primary" t-on-click="apply">Apply</button>
+        </t>
+    </Dialog>
+</t>
