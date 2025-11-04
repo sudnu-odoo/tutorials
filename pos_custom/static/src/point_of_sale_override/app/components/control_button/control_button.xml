@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <t t-name="pos_custom.ControlButton" t-inherit="point_of_sale.ControlButtons" t-inherit-mode="extension">
+        <xpath expr="//button[hasclass('more-btn')]" position="before">
+           <button class="course-btn" t-att-class="buttonClass" t-on-click="() => this.onClickDeleteLine()">
+                <span>Delete</span>
+           </button>
+       </xpath>
+    </t>
+</templates>

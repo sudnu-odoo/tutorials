@@ -1,0 +1,18 @@
+<odoo>
+    <record id="view_pos_config_inherit_congratulatory_text" model="ir.ui.view">
+        <field name="name">pos.config.form.inherit.congratulatory.text</field>
+        <field name="model">pos.config</field>
+        <field name="inherit_id" ref="point_of_sale.pos_config_view_form" />
+        <field name="arch" type="xml">
+
+            <!-- Insert your field inside the settings section -->
+            <xpath expr="//setting[@string='IoT Box']" position="after">
+                <setting string="Congratulatory Message"
+                    help="This message will appear on the POS screen when an order is successfully validated.">
+                    <field name="congratulatory_text"
+                        placeholder="e.g. Thank you for shopping with us! 🎉" />
+                </setting>
+            </xpath>
+        </field>
+    </record>
+</odoo>

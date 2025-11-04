@@ -15,7 +15,7 @@
                 <p class="text-end lh-sm"> Total amount in words: <br />
                     <small
                         class="text-muted lh-sm">
-                        <span t-field="o.amount_total_text" />
+                        <span t-esc="o.currency_id.amount_to_text(o.amount_total)" />
                     </small>
                 </p>
             </div>

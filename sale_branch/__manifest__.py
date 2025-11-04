@@ -4,7 +4,7 @@
     "summary": "Sales Branch Management Module",
     "description": "A module to manage sales branches.",
     "author": "Sultan",
-    "depends": ["base", "account", "sale"],
+    "depends": ["sale"],
     "installable": True,
     "application": True,
     "category": "Tutorials",
