@@ -7,11 +7,17 @@ class EstateProperty(models.Model):
     def action_sold(self):
         res = super(EstateProperty, self).action_sold()
 
+        # collect properties that actually have a buyer
+        props = self.filtered(lambda p: p.buyer_id)
+
+        if not props:
+            return res
+
+        props.check_access_rights('write')
+        props.check_access_rule('write')
+
         property_list = []
-        for property in self:
-            if not property.buyer_id:
-                continue
-            
+        for property in self:            
             property_list.append({
                 "partner_id": property.buyer_id.id,
                 "move_type": "out_invoice",
@@ -29,6 +35,6 @@ class EstateProperty(models.Model):
                 ]
             })
 
-        self.env['account.move'].create(property_list)
+        self.env['account.move'].sudo().create(property_list)
 
         return res

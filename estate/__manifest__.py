@@ -7,8 +7,9 @@
     "depends": ["base", "account"],
     "installable": True,
     "application": True,
-    "category": "Tutorials",
+    "category": "Real Estate/Brokerage",
     "data": [
+        "security/estate_security.xml",
         "security/ir.model.access.csv",
         "data/estate.property.type.csv",
         "data/estate_data.xml",

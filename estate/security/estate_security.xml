@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- ================= PRIVILEGE ================= -->
+    <record model="res.groups.privilege" id="res_groups_privilege_estate">
+        <field name="name">Estate</field>
+        <field name="category_id" ref="base.module_category_real_estate_brokerage" />
+    </record>
+
+    <!-- ================= AGENT GROUP ================= -->
+    <record id="estate_group_user" model="res.groups">
+        <field name="name">Agent</field>
+        <field name="sequence">10</field>
+        <field name="implied_ids" eval="[(4, ref('base.group_user'))]" />
+        <field name="privilege_id" ref="res_groups_privilege_estate" />
+    </record>
+
+    <!-- ================= MANAGER GROUP ================= -->
+    <record id="estate_group_manager" model="res.groups">
+        <field name="name">Manager</field>
+        <field name="sequence">20</field>
+        <field name="implied_ids" eval="[(4, ref('estate_group_user'))]" />
+        <field name="privilege_id" ref="res_groups_privilege_estate" />
+        <field name="user_ids" eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]" />
+    </record>
+
+    <!-- ================= RECORD RULE ================= -->
+    <!-- Agents can only see properties they own or unassigned -->
+    <record id="estate_property_rule_agent_own" model="ir.rule">
+        <field name="name">Agent can only see own or unassigned properties</field>
+        <field name="model_id" ref="model_estate_property" />
+        <field name="domain_force">[
+            '|',
+            ('salesperson_id', '=', user.id),
+            ('salesperson_id', '=', False)
+            ]</field>
+        <field name="groups" eval="[(4, ref('estate_group_user'))]" />
+    </record>
+
+    <!-- Manager can see all properties -->
+    <record id="estate_property_rule_manager_all" model="ir.rule">
+        <field name="name">Manager can see all properties</field>
+        <field name="model_id" ref="model_estate_property" />
+        <field name="domain_force">[(1, '=', 1)]</field>
+        <field name="groups" eval="[(4, ref('estate_group_manager'))]" />
+    </record>
+
+    <record id="estate_property_rule_multi_company" model="ir.rule">
+        <field name="name">Estate Property multi-company</field>
+        <field name="model_id" ref="model_estate_property" />
+        <!-- Make this rule apply to *everyone*, not just agents -->
+        <field name="global" eval="True" />
+        <!-- Domain -->
+        <field name="domain_force">[
+            '|',
+            ('company_id', '=', False),
+            ('company_id', 'in', company_ids)
+            ]</field>
+    </record>
+
+</odoo>

@@ -8,7 +8,8 @@
         action="estate_property_action" />
 
     <!-- Settings -->
-    <menuitem id="estate_property_menu_settings" name="Settings" parent="estate_property_menu_root" />
+    <menuitem id="estate_property_menu_settings" name="Settings" parent="estate_property_menu_root"
+        groups="estate_group_manager" />
 
     <!-- Property Types -->
     <menuitem id="estate_property_types_menu_action" name="Property Types"
