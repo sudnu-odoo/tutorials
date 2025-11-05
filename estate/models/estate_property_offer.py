@@ -73,6 +73,10 @@ class EstatePropertyOffer(models.Model):
             property_id = val.get('property_id')
             property_rec = self.env['estate.property'].browse(property_id)
 
+            # if property already sold, cannot make an offer
+            if property_rec.state == 'sold':
+                raise UserError("Cannot create an offer for a property that is already sold.")
+
             existing_highest = max(property_rec.offer_ids.mapped('price') or [0.0])
             new_price = val.get('price', 0.0)
             if new_price < existing_highest:

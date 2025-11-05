@@ -1,11 +1,12 @@
 {
-    "python-envs.defaultEnvManager": "ms-python.python:system",
-    "python-envs.pythonProjects": [],
-    "Odoo.selectedProfile": "default",
-    "python.languageServer": "None",
-    "python.analysis.extraPaths": [
-        "/home/odoo/odev/worktrees/19.0/odoo"
-    ],
-    "python.defaultInterpreterPath": "/home/odoo/odev/virtualenvs/19.0/bin/python3",
-    "xml.symbols.enabled": false
+  "python-envs.defaultEnvManager": "ms-python.python:system",
+  "python-envs.pythonProjects": [],
+  "Odoo.selectedProfile": "default",
+  "python.languageServer": "None",
+  "python.analysis.extraPaths": ["/home/odoo/odev/worktrees/19.0/odoo"],
+  "python.defaultInterpreterPath": "/home/odoo/odev/virtualenvs/19.0/bin/python3",
+  "xml.symbols.enabled": false,
+  "python.testing.unittestArgs": ["-v", "-s", "./estate", "-p", "test_*.py"],
+  "python.testing.pytestEnabled": false,
+  "python.testing.unittestEnabled": true
 }
